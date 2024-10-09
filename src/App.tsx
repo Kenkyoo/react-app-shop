@@ -6,6 +6,9 @@ import Grid from '@mui/material/Grid2';
 import Products from './components/products';
 import SimpleBottomNavigation from './components/navbar';
 import {SimpleAlert, WarningAlert } from './components/alerts';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Footer from './components/footer';
 
 function App() {
   const [data, setData] = useState([]);
@@ -57,6 +60,11 @@ function App() {
       {alert && <SimpleAlert />}
       {removeAlert && <WarningAlert />}    
       <SimpleBottomNavigation setShowData={setShowData} />
+      <Box style={{margin: "auto"}} sx={{ width: '100%', maxWidth: 1000 }}>
+      <Typography variant="h4" gutterBottom>
+        A simple shopping cart with React
+      </Typography>
+      </Box>
       <h2>Total: ${totalAmount}</h2>
       <Container fixed>
        <Grid container spacing={6} columns={12}>
@@ -67,6 +75,7 @@ function App() {
           )}
         </Grid>  
       </Container>
+      <Footer />
     </>
   );
 }

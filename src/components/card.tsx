@@ -5,9 +5,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { motion } from "framer-motion";
 
 const Cards = ({ title, description, image, price, rate, onAddClick, onRemoveClick }) => {
     return (
+      <motion.div
+      className="box"
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      >
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia
             sx={{ height: 140 }}
@@ -29,6 +35,7 @@ const Cards = ({ title, description, image, price, rate, onAddClick, onRemoveCli
             <Button size="small">{price}</Button>
           </CardActions>
         </Card>
+      </motion.div>  
       );
 };
 
