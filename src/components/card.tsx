@@ -10,9 +10,9 @@ import { motion } from "framer-motion";
 const Cards = ({ title, description, image, price, rate, onAddClick, onRemoveClick }) => {
     return (
       <motion.div
-      className="box"
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
       >
         <Card sx={{ maxWidth: 345 }}>
           <CardMedia
