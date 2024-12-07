@@ -1,7 +1,24 @@
 import Cards from './card';
 import Grid from '@mui/material/Grid2';
 
-const Products = ({data, addToCart, removeToCart}) => {
+interface Product {
+  id: number;
+  title: string;
+  image: string;
+  description: string;
+  price: number;
+  rating: {
+    rate: number;
+  };
+}
+
+interface ProductsProps {
+  data: Product[];
+  addToCart?: (product: Product) => void;
+  removeToCart: (id: number) => void;
+}
+
+const Products = ({data, addToCart, removeToCart} : ProductsProps) => {
     return (
   <>
     {data.map((product) => (
@@ -12,7 +29,7 @@ const Products = ({data, addToCart, removeToCart}) => {
             description={product.description}
             price={product.price}
             rate={product.rating.rate}
-            onAddClick={() => addToCart(product)}
+            onAddClick={() => addToCart?.(product)}
             onRemoveClick={() => removeToCart(product.id)}             
           />
         </Grid>  

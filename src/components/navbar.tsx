@@ -6,15 +6,19 @@ import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-export default function SimpleBottomNavigation({setShowData}) {
+interface NavProps {
+  setShowData: (value: boolean) => void;
+}
+
+export default function SimpleBottomNavigation({setShowData} : NavProps) {
   const [value, setValue] = React.useState(0);
 
   return (
-    <Box sx={{ width: 1000, paddingBottom: "1rem" }} style={{margin: "auto"}}>
+    <Box sx={{ paddingBottom: "1rem" }} style={{margin: "auto"}}>
       <BottomNavigation
         showLabels
         value={value}
-        onChange={(event, newValue) => {
+        onChange={(_event, newValue) => {
           setValue(newValue);
         }}
       >
